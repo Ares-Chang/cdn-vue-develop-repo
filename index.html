@@ -7,17 +7,22 @@
     <title>CDN Vue develop config</title>
     <!-- Vue 2.7.14 {@link https://v2.cn.vuejs.org/v2/guide/installation.html#CDN} -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14"></script>
+    <!-- Vue 文件转换库 {@link https://github.com/FranckFreiburger/http-vue-loader} -->
+    <script src="https://unpkg.com/http-vue-loader@1.4.2/src/httpVueLoader.js"></script>
   </head>
 
   <body>
-    <div id="app">{{ msg }}</div>
+    <div id="app">
+      <my-page></my-page>
+    </div>
   </body>
 
   <script>
     const app = new Vue({
       el: '#app',
-      data: {
-        msg: 'Hello World!'
+      components: {
+        // 引入页面
+        'my-page': httpVueLoader(`./src/views/home/index.vue`)
       }
     })
   </script>
