@@ -1,0 +1,21 @@
+{
+  "httpVueLoader快速生成模板": {
+    "prefix": "httpVue",
+    "body": [
+      "<template>",
+      "  <div>$0</div>",
+      "</template>\n",
+      "<script>",
+      "module.exports = {",
+      "  data() {",
+      "    return {",
+      "      $1",
+      "    }",
+      "  },",
+      "  methods: {}",
+      "}",
+      "</script>\n"
+    ],
+    "description": "httpVueLoader 快速生成模板"
+  }
+}
