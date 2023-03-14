@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CDN Vue develop config</title>
+    <!-- Vue@3.2.47 {@link https://v2.cn.vuejs.org/v2/guide/installation.html#CDN} -->
+    <script src="https://unpkg.com/vue@3.2.47/dist/vue.global.js"></script>
+    <!-- Vue 文件转换库 {@link https://github.com/FranckFreiburger/vue3-sfc-loader} -->
+    <script src="https://unpkg.com/vue3-sfc-loader@0.8.4/dist/vue3-sfc-loader.js"></script>
+    <!-- Unocss Attributify {@link https://github.com/unocss/unocss/tree/main/packages/runtime} -->
+    <script src="https://cdn.jsdelivr.net/npm/@unocss/runtime/attributify.global.js"></script>
+
+    <style>
+      [v-cloak],
+      [un-cloak] {
+        display: none !important;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="app" v-cloak un-cloak>
+      <my-page></my-page>
+    </div>
+  </body>
+
+  <script>
+    const { createApp } = Vue
+    const { loadModule } = window['vue3-sfc-loader']
+
+    const options = {
+      moduleCache: {
+        vue: Vue
+      },
+      async getFile(url) {
+        const res = await fetch(url)
+        if (!res.ok)
+          throw Object.assign(new Error(res.statusText + ' ' + url), { res })
+        return {
+          getContentData: asBinary =>
+            asBinary ? res.arrayBuffer() : res.text()
+        }
+      },
+      addStyle(textContent) {
+        const style = Object.assign(document.createElement('style'), {
+          textContent
+        })
+        const ref = document.head.getElementsByTagName('style')[0] || null
+        document.head.insertBefore(style, ref)
+      }
+    }
+
+    createApp({
+      components: {
+        // 引入页面
+        'my-page': Vue.defineAsyncComponent(() =>
+          loadModule('./src/views/home/index.vue', options)
+        )
+      }
+    }).mount('#app')
+  </script>
+</html>
