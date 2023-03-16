@@ -1,0 +1,10 @@
+{
+  "name": "cdn-vue-develop-start",
+  "description": "以 CDN 形式引入 Vue 各版本的开发配置起手",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Chang",
+  "license": "ISC"
+}
