@@ -11,7 +11,14 @@
 </template>
 
 <script>
-const { ref } = VueCompositionAPI
+// 兼容版本引入
+let _Vue = {}
+try {
+  _Vue = VueCompositionAPI
+} catch (error) {
+  _Vue = Vue
+}
+const { ref } = _Vue
 module.exports = {
   setup() {
     const count = ref(0)
