@@ -4,11 +4,10 @@
 
 <script>
 module.exports = {
-  data() {
+  setup() {
     return {
       msg: 'Hello World!'
     }
-  },
-  methods: {}
+  }
 }
 </script>
