@@ -11,14 +11,7 @@
 </template>
 
 <script>
-// 兼容版本引入
-let _Vue = {}
-try {
-  _Vue = VueCompositionAPI
-} catch (error) {
-  _Vue = Vue
-}
-const { ref } = _Vue
+const { ref } = VueDemi
 module.exports = {
   setup() {
     const count = ref(0)
