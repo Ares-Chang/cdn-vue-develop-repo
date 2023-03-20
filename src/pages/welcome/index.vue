@@ -12,26 +12,20 @@
 </template>
 
 <script>
-const { ref } = VueDemi
+const { toRefs } = VueDemi
 const { useMouse } = VueUse
 module.exports = {
   setup() {
-    const count = ref(0)
-
-    function calc(type) {
-      if (type === '+') count.value++
-      else if (type === '-') count.value--
-    }
+    const counter = useCounterStore()
 
     // tracks mouse position
     const { x, y } = useMouse()
 
     return {
       msg: 'Hello World!',
-      count,
       x,
       y,
-      calc
+      ...toRefs(counter)
     }
   }
 }
