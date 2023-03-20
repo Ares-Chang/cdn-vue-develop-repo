@@ -8,7 +8,6 @@ const useCounterStore = Pinia.defineStore('counter', () => {
    * @param {string} type +: 增加; -: 减少
    */
   function calc(type) {
-    console.log(type,count.value)
     if (type === '+') count.value++
     else if (type === '-') count.value--
   }
