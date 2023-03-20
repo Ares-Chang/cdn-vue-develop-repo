@@ -16,6 +16,11 @@
     <!-- VueUse {@link https://vueuse.org/} -->
     <script src="https://unpkg.com/@vueuse/shared"></script>
     <script src="https://unpkg.com/@vueuse/core"></script>
+    <!-- Pinia {@link https://pinia.vuejs.org/zh/} {@link 参考 https://github.com/vuejs/pinia/discussions/1051}  -->
+    <script src="https://cdn.jsdelivr.net/npm/pinia"></script>
+
+    <!-- Pinia useStore 自定义函数 -->
+    <script src="./src/store/count.js"></script>
 
     <style>
       [v-cloak],
@@ -32,8 +37,12 @@
   </body>
 
   <script>
+    const { createPinia, PiniaVuePlugin } = Pinia
+
+    Vue.use(PiniaVuePlugin)
     const app = new Vue({
       el: '#app',
+      pinia: createPinia(),
       components: {
         // 引入页面
         'my-page': httpVueLoader(`./src/pages/welcome/index.vue`)
