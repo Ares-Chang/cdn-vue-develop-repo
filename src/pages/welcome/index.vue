@@ -12,11 +12,12 @@
 </template>
 
 <script>
-const { toRefs } = VueDemi
 const { useMouse } = VueUse
+const { storeToRefs } = Pinia
 module.exports = {
   setup() {
-    const counter = useCounterStore()
+    const store = useCounterStore()
+    const { count } = storeToRefs(store)
 
     // tracks mouse position
     const { x, y } = useMouse()
@@ -25,7 +26,8 @@ module.exports = {
       msg: 'Hello World!',
       x,
       y,
-      ...toRefs(counter)
+      count,
+      calc: store.calc
     }
   }
 }
