@@ -20,6 +20,10 @@
 
 - [@vue/composition-api](https://github.com/vuejs/composition-api) - 用于提供 [`Composition API`](https://cn.vuejs.org/guide/extras/composition-api-faq.html) 的 Vue 2 插件
 
+  > `vue` >= v2.7，将不再需要主动引入此插件，已内置了 `Composition API`
+
 - [VueUse](https://vueuse.org/) - 实用的 [`Composition API`](https://cn.vuejs.org/guide/extras/composition-api-faq.html) 工具合集
+
+  > 从 v6.0 开始，VueUse 要求 `vue` >= v3.2 或 `@vue/composition-api` >= v1.1
 
 - [Pinia](https://pinia.vuejs.org/zh/) - 符合直觉的 Vue.js 状态管理库
