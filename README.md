@@ -30,7 +30,7 @@
 
 ## `http-vue-loader` 使用须知
 
-1. `http-vue-loader` 加载的 `.vue` 文件内不支持 `es6` 的 `import/export default` 等写法(`vue3-sfc-loader` 据说是可以，但是我并没有尝试过)
+1. `http-vue-loader` 加载的 `.vue` 文件内不支持 `ESM` 的 `import/export default` 等写法，可以使用 `CJS` 导出。(`vue3-sfc-loader` 据说是可以，但是我并没有尝试过)
 
 2. 加载组件时不要使用大写字母，否则组件不会注册成功。 推荐使用脊柱命名法 `the-name` 来注册组件。
 
