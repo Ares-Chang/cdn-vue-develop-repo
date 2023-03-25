@@ -21,6 +21,8 @@
     <!-- Pinia {@link https://pinia.vuejs.org/zh/} {@link 参考 https://github.com/vuejs/pinia/discussions/1051}  -->
     <script src="https://cdn.jsdelivr.net/npm/pinia"></script>
 
+    <!-- User Style -->
+    <link rel="stylesheet" href="./src/style/main.css" />
     <!-- Pinia useStore 自定义函数 -->
     <script src="./src/store/counter.js"></script>
 
@@ -32,8 +34,14 @@
     </style>
   </head>
 
-  <body m0>
-    <div id="app" v-cloak>
+  <body>
+    <div
+      id="app"
+      v-cloak
+      font-sans
+      p="x-4 y-10"
+      text="center gray-700"
+    >
       <my-page un-cloak></my-page>
     </div>
   </body>
