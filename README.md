@@ -4,6 +4,8 @@
 
 本项目收集了 `Vue` 各版本直接引用 `.vue` 文件作为组件使用的方法。以及提供了一些个人觉得好用的 package config.
 
+**🔴本项目并不能做为一个起手模板直接使用，可以参考自己业务进入对应版本，copy page 进行自定义开发**
+
 ## 关键 package
 
 - [~~http-vue-loader~~](https://github.com/FranckFreiburger/http-vue-loader) - 仓库现已不维护，但 Vue 3 之前版本依旧可用。(~~ps: 相对情况下推荐，无需配置。~~)
