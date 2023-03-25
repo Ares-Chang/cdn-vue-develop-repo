@@ -12,13 +12,13 @@ function getVueFile(url) {
 }
 module.exports = {
   components: {
-    Welcome: getVueFile('/src/components/Welcome.vue')
+    TheWelcome: getVueFile('/src/components/TheWelcome.vue')
   }
 }
 </script>
 
 <template>
   <div>
-    <Welcome></Welcome>
+    <TheWelcome></TheWelcome>
   </div>
 </template>
