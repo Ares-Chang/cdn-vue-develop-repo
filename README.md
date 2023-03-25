@@ -1,4 +1,4 @@
-# cdn-vue-develop-repo
+# cdn-vue-develop-repo [![Netlify Status](https://api.netlify.com/api/v1/badges/ee9cb145-2b8c-4644-a36d-c33887c4922c/deploy-status)](https://app.netlify.com/sites/stalwart-mooncake-2040cd/deploys)
 
 因个人需求，部分业务开发需要使用 CDN 形式引入 `Vue` 进行开发。但是业务逻辑一多，放到一个文件中就很不好维护，所以本项目诞生了。
 
