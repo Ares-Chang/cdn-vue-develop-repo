@@ -18,7 +18,7 @@ module.exports = {
 </script>
 
 <template>
-  <div>
+  <div h-100vh flex="~ col" justify-center items-center>
     <TheWelcome></TheWelcome>
   </div>
 </template>

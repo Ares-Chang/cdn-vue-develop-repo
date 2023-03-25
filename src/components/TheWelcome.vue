@@ -21,7 +21,7 @@ module.exports = {
 </script>
 
 <template>
-  <div un-cloak h-100vh flex="~ col" justify-center items-center>
+  <div un-cloak flex="~ col" justify-center items-center>
     <span text-3xl color-pink>{{ msg }}</span>
 
     <div>{{ x }}, {{ y }}</div>
