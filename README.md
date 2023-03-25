@@ -1,4 +1,4 @@
-# cdn-vue-develop-start
+# cdn-vue-develop-repo
 
 因个人需求，部分业务开发需要使用 CDN 形式引入 `Vue` 进行开发。但是业务逻辑一多，放到一个文件中就很不好维护，所以本项目诞生了。
 
