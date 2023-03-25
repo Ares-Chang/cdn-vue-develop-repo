@@ -17,7 +17,7 @@ module.exports = {
 
     <a
       rel="noreferrer"
-      href="https://github.com/ares-chang/cdn-vue-develop-start"
+      href="https://github.com/ares-chang/cdn-vue-develop-repo"
       target="_blank"
       title="GitHub"
       >GitHub</a
