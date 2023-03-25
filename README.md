@@ -27,3 +27,23 @@
   > 从 v6.0 开始，VueUse 要求 `vue` >= v3.2 或 `@vue/composition-api` >= v1.1
 
 - [Pinia](https://pinia.vuejs.org/zh/) - 符合直觉的 Vue.js 状态管理库
+
+## 注意
+
+如果使用 `http-vue-loader` 请注意，加载组件时不要使用大写字母，否则组件不会注册成功。 推荐使用脊柱命名法 `the-name` 来注册组件。
+
+```vue
+<script>
+module.exports = {
+  components: {
+    'the-name': getVueFile('https://www.xxx.xxx/TheName.vue')
+  }
+}
+</script>
+
+<template>
+  <div>
+    <the-name></the-name>
+  </div>
+</template>
+```
