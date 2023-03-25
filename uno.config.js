@@ -1,6 +1,16 @@
 /**
- * 此文件在 CDN 生产模式下并无实际意义，是为优化开发体验而创建
- * 
+ * 此文件为 UnoCSS 的配置文件，详情配置请参考 {@see https://github.com/unocss/unocss}
+ *
+ * 如不需要自定义配置，也请创建此文件，可以提升 VSCode antfu.unocss 插件开发体验
  * UnoCSS 插件在检测无配置文件后将自动禁用
  * 参考 {@link https://marketplace.visualstudio.com/items?itemName=antfu.unocss}
  */
+
+window.__unocss = {
+  shortcuts: [
+    [
+      'icon-btn',
+      'text-2xl color-inherit b-0 p-0 flex bg-transparent cursor-pointer select-none opacity-75 transition duration-200 ease-in-out hover:opacity-100 hover:text-teal-600 !outline-none'
+    ]
+  ]
+}
