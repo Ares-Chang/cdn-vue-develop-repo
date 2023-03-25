@@ -12,7 +12,8 @@ function getVueFile(url) {
 }
 module.exports = {
   components: {
-    TheWelcome: getVueFile('/src/components/TheWelcome.vue')
+    TheWelcome: getVueFile('/src/components/TheWelcome.vue'),
+    TheFooter: getVueFile('/src/components/TheFooter.vue')
   }
 }
 </script>
@@ -20,5 +21,6 @@ module.exports = {
 <template>
   <div h-100vh flex="~ col" justify-center items-center>
     <TheWelcome></TheWelcome>
+    <TheFooter></TheFooter>
   </div>
 </template>
