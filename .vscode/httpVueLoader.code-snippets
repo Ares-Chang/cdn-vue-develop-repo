@@ -12,7 +12,7 @@
       "}",
       "</script>\n",
       "<template>",
-      "  <div>$0</div>",
+      "  <div un-cloak>$0</div>",
       "</template>\n"
     ],
     "description": "httpVueLoader 快速生成模板"
