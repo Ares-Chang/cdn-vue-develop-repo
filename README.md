@@ -28,9 +28,13 @@
 
 - [Pinia](https://pinia.vuejs.org/zh/) - 符合直觉的 Vue.js 状态管理库
 
-## 注意
+## `http-vue-loader` 使用须知
 
-如果使用 `http-vue-loader` 请注意，加载组件时不要使用大写字母，否则组件不会注册成功。 推荐使用脊柱命名法 `the-name` 来注册组件。
+1. `http-vue-loader` 加载的 `.vue` 文件内不支持 `es6` 的 `import/export default` 等写法(`vue3-sfc-loader` 据说是可以，但是我并没有尝试过)
+
+2. 加载组件时不要使用大写字母，否则组件不会注册成功。 推荐使用脊柱命名法 `the-name` 来注册组件。
+
+#### 示例
 
 ```vue
 <script>
