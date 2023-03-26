@@ -4,7 +4,7 @@
 
 本项目收集了 `Vue` 各版本直接引用 `.vue` 文件作为组件使用的方法。以及提供了一些个人觉得好用的 package config.
 
-**🔴本项目并不能做为一个起手模板直接使用，可以参考自己业务进入对应版本，copy page 进行自定义开发**
+**🔴 本项目并不能做为一个起手模板直接使用，可以参考自己业务进入对应版本，copy page 进行自定义开发**
 
 ## 关键 package
 
@@ -27,6 +27,12 @@
   > 从 v6.0 开始，VueUse 要求 `vue` >= v3.2 或 `@vue/composition-api` >= v1.1
 
 - [Pinia](https://pinia.vuejs.org/zh/) - 符合直觉的 Vue.js 状态管理库
+
+- [iconify](https://github.com/iconify/iconify) - 通用 iconify Web 组件
+
+  - 图标查找地址 [icones](https://icones.js.org/) [iconify](https://icon-sets.iconify.design/)
+
+  > CDN 模式暂未找到 [`@unocss/preset-icons`](https://github.com/unocss/unocss/tree/main/packages/preset-icons/) 解决方案，暂未接入 `UnoCSS` 环境
 
 ## `http-vue-loader` 使用须知
 
