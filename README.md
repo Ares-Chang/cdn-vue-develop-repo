@@ -46,7 +46,7 @@
 <script>
 module.exports = {
   components: {
-    'the-name': getVueFile('https://www.xxx.xxx/TheName.vue')
+    'the-name': httpVueLoader('https://www.xxx.xxx/TheName.vue')
   }
 }
 </script>
