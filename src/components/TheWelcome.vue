@@ -1,7 +1,9 @@
 <script>
 module.exports = {
   setup() {
-    return {}
+    return {
+      list: ['vue@2.6.x', 'vue@2.7.x', 'vue@3.2.x']
+    }
   }
 }
 </script>
@@ -15,7 +17,9 @@ module.exports = {
     </div>
     <div flex gap-20 mt-20 text-xl>
       <a
-        href="./vue@2.6.x.html"
+        v-for="(val, index) in list"
+        :key="index"
+        :href="`./${val}.html`"
         color-blue
         decoration-none
         p-2
@@ -25,33 +29,7 @@ module.exports = {
         h-50px
         text-center
         hover="text-2xl op-100"
-        >Vue@2.6.x</a
-      >
-      <a
-        href="./vue@2.7.x.html"
-        color-blue
-        decoration-none
-        p-2
-        cursor-pointer
-        op-60
-        w-140px
-        h-50px
-        text-center
-        hover="text-2xl op-100"
-        >Vue@2.7.x</a
-      >
-      <a
-        href="./vue@3.2.x.html"
-        color-blue
-        decoration-none
-        p-2
-        cursor-pointer
-        op-60
-        w-140px
-        h-50px
-        text-center
-        hover="text-2xl op-100"
-        >Vue@3.2.x</a
+        >{{ val }}</a
       >
     </div>
   </div>
