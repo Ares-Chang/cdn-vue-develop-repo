@@ -59,3 +59,9 @@ module.exports = {
   </div>
 </template>
 ```
+
+## **注意❗️❗️❗️**
+
+此 Demo 因需兼容多版本 `Vue`，需加载自不同 `Runtime package`，所以 `Demo` 中在 `utils` 文件中自定义了一个 `getVueFile` 加载方法。
+
+正常开发按对应版本，使用对应加载方法即 ok.
