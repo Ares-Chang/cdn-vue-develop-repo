@@ -7,93 +7,77 @@
     <title>CDN Vue develop config</title>
     <!-- Vue 3 {@link https://cn.vuejs.org/} -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
-    <!-- Unocss Attributify {@link https://github.com/unocss/unocss/tree/main/packages/runtime} -->
+    <!-- Vue 文件转换库 {@link https://github.com/FranckFreiburger/vue3-sfc-loader} -->
+    <script src="https://unpkg.com/vue3-sfc-loader@0.8.4/dist/vue3-sfc-loader.js"></script>
+    <!-- User defined 请确保加载于 UnoCSS 之前-->
+    <script src="./uno.config.js"></script>
+    <!-- UnoCSS Attributify {@link 文档 https://uno.antfu.me} {@link https://github.com/unocss/unocss/tree/main/packages/runtime} -->
     <script src="https://cdn.jsdelivr.net/npm/@unocss/runtime/attributify.global.js"></script>
+    <!-- Vue Demi {@link https://github.com/vueuse/vue-demi} -->
+    <script src="https://cdn.jsdelivr.net/npm/vue-demi@0.13.11"></script>
+    <!-- VueUse {@link https://vueuse.org/} -->
+    <script src="https://unpkg.com/@vueuse/shared"></script>
+    <script src="https://unpkg.com/@vueuse/core"></script>
+    <!-- IconifyIcon {@link https://github.com/iconify/iconify} -->
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.7/dist/iconify-icon.min.js"></script>
+
+    <!-- User Style -->
+    <link rel="stylesheet" href="./src/style/main.css" />
+    <!-- User Composables -->
+    <script src="./src/composables/dark.js"></script>
 
     <style>
       [v-cloak],
       [un-cloak] {
         display: none !important;
       }
-
-      .colorful {
-        color: transparent;
-        background: linear-gradient(315deg, #42d392 25%, #647eff);
-        background-clip: text;
-        -webkit-background-clip: text;
-      }
     </style>
   </head>
 
-  <body m0>
+  <body>
     <div
       id="app"
       v-cloak
-      un-cloak
-      h-100vh
-      flex="~ col"
-      justify-center
-      items-center
+      font-sans
+      p="x-4 y-10"
+      text="center gray-700 dark:gray-200"
     >
-      <div class="colorful" text-4xl font-bold>{{ msg }}</div>
-      <div class="colorful" text-3xl font-bold>
-        Welcome to
-        <span text-6xl>Vue</span>
-      </div>
-      <div flex gap-20 mt-20 text-xl>
-        <a
-          href="./vue@2.6.x.html"
-          color-blue
-          decoration-none
-          p-2
-          cursor-pointer
-          op-60
-          w-140px
-          h-50px
-          text-center
-          hover="text-2xl op-100"
-          >Vue@2.6.x</a
-        >
-        <a
-          href="./vue@2.7.x.html"
-          color-blue
-          decoration-none
-          p-2
-          cursor-pointer
-          op-60
-          w-140px
-          h-50px
-          text-center
-          hover="text-2xl op-100"
-          >Vue@2.7.x</a
-        >
-        <a
-          href="./vue@3.2.x.html"
-          color-blue
-          decoration-none
-          p-2
-          cursor-pointer
-          op-60
-          w-140px
-          h-50px
-          text-center
-          hover="text-2xl op-100"
-          >Vue@3.2.x</a
-        >
-      </div>
+      <my-page un-cloak></my-page>
     </div>
   </body>
 
   <script>
     const { createApp } = Vue
+    const { loadModule } = window['vue3-sfc-loader']
+
+    const options = {
+      moduleCache: {
+        vue: Vue
+      },
+      async getFile(url) {
+        const res = await fetch(url)
+        if (!res.ok)
+          throw Object.assign(new Error(res.statusText + ' ' + url), { res })
+        return {
+          getContentData: asBinary =>
+            asBinary ? res.arrayBuffer() : res.text()
+        }
+      },
+      addStyle(textContent) {
+        const style = Object.assign(document.createElement('style'), {
+          textContent
+        })
+        const ref = document.head.getElementsByTagName('style')[0] || null
+        document.head.insertBefore(style, ref)
+      }
+    }
 
     createApp({
-      setup() {
-        const msg = 'Hello World!'
-
-        return {
-          msg
-        }
+      components: {
+        // 引入页面
+        'my-page': Vue.defineAsyncComponent(() =>
+          loadModule('./src/pages/index.vue', options)
+        )
       }
     }).mount('#app')
   </script>
