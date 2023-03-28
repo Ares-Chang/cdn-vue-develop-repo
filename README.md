@@ -1,7 +1,5 @@
 # cdn-vue-develop-repo [![Netlify Status](https://api.netlify.com/api/v1/badges/ee9cb145-2b8c-4644-a36d-c33887c4922c/deploy-status)](https://app.netlify.com/sites/stalwart-mooncake-2040cd/deploys)
 
-https://router.vuejs.org/
-
 因个人需求，部分业务开发需要使用 CDN 形式引入 `Vue` 进行开发。但是业务逻辑一多，放到一个文件中就很不好维护，所以本项目诞生了。
 
 本项目收集了 `Vue` 各版本直接引用 `.vue` 文件作为组件使用的方法。以及提供了一些个人觉得好用的 package config.
