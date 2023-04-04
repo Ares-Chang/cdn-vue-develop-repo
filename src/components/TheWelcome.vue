@@ -28,7 +28,7 @@ module.exports = {
         w-140px
         h-50px
         text-center
-        hover="text-2xl op-100"
+        hover="text-2xl op-100 animate-bounce-alt"
         >{{ val }}</a
       >
     </div>
