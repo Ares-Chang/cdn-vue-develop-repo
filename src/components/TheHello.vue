@@ -24,10 +24,10 @@ module.exports = {
     <span text-3xl color-pink>{{ msg }}</span>
 
     <div>{{ x }}, {{ y }}</div>
-    <div flex gap-2 mt-6>
-      <button @click="calc('-')">-</button>
-      <span>{{ count }}</span>
-      <button @click="calc('+')">+</button>
+    <div flex items-center gap-4 mt-6>
+      <button btn text-xl @click="calc('-')">-</button>
+      <span font-bold>{{ count }}</span>
+      <button btn text-xl @click="calc('+')">+</button>
     </div>
   </div>
 </template>
