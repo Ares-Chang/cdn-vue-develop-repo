@@ -1,14 +1,9 @@
 <script>
 module.exports = {
   setup() {
-    function goBack() {
-      window.history.back()
-    }
-
     return {
       isDark,
-      toggleDark,
-      goBack
+      toggleDark
     }
   }
 }
@@ -16,11 +11,9 @@ module.exports = {
 
 <template>
   <nav un-clock text-xl mt-6 inline-flex gap-2>
-    <iconify-icon
-      icon-btn
-      icon="carbon-campsite"
-      @click="goBack"
-    ></iconify-icon>
+    <a icon-btn href="/">
+      <iconify-icon icon="carbon-campsite"></iconify-icon>
+    </a>
 
     <button icon-btn @click="toggleDark()">
       <iconify-icon v-if="isDark" icon="carbon-sun"></iconify-icon>
