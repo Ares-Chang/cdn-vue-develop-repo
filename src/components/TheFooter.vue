@@ -11,11 +11,11 @@ module.exports = {
 
 <template>
   <nav un-clock text-xl mt-6 inline-flex gap-2>
-    <a icon-btn href="/">
+    <a icon-btn href="/" title="Home">
       <iconify-icon icon="carbon-campsite"></iconify-icon>
     </a>
 
-    <button icon-btn @click="toggleDark()">
+    <button icon-btn @click="toggleDark()" title="Toogle dark mode">
       <iconify-icon v-if="isDark" icon="carbon-sun"></iconify-icon>
       <iconify-icon v-else icon="carbon-moon"></iconify-icon>
     </button>
