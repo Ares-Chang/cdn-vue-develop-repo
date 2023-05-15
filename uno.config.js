@@ -6,15 +6,17 @@
  * 参考 {@link https://marketplace.visualstudio.com/items?itemName=antfu.unocss}
  */
 
-window.__unocss = {
-  shortcuts: [
-    [
-      'btn',
-      'px-4 py-1 b-0 rounded inline-block bg-teal-600 text-white cursor-pointer hover:bg-teal-700 disabled:cursor-default disabled:bg-gray-600 disabled:opacity-50'
-    ],
-    [
-      'icon-btn',
-      'text-2xl color-inherit b-0 p-0 flex bg-transparent cursor-pointer select-none opacity-75 transition duration-200 ease-in-out hover:opacity-100 hover:text-teal-600 !outline-none'
+setTimeout(() => {
+  window.__unocss = {
+    shortcuts: [
+      [
+        'btn',
+        'px-4 py-1 b-0 rounded inline-block bg-teal-600 text-white cursor-pointer hover:bg-teal-700 disabled:cursor-default disabled:bg-gray-600 disabled:opacity-50'
+      ],
+      [
+        'icon-btn',
+        'text-2xl color-inherit b-0 p-0 flex bg-transparent cursor-pointer select-none opacity-75 transition duration-200 ease-in-out hover:opacity-100 hover:text-teal-600 !outline-none'
+      ]
     ]
-  ]
-}
+  }
+}, 0)
