@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ESM Vue develop config</title>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js",
+          "vue3-sfc-loader": "https://cdn.jsdelivr.net/npm/vue3-sfc-loader@0.9.5/dist/vue3-sfc-loader.esm.js",
+          "vue-demi": "https://cdn.jsdelivr.net/npm/vue-demi@0.14.7/+esm",
+          "pinia": "https://cdn.jsdelivr.net/npm/pinia@2.1.7/+esm",
+          "@vueuse/core": "https://cdn.jsdelivr.net/npm/@vueuse/core@10.8.0/+esm",
+          "@vueuse/shared": "https://cdn.jsdelivr.net/npm/@vueuse/shared@10.8.0/+esm"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div
+      id="app"
+      v-cloak
+      font-sans
+      p="x-4 y-10"
+      text="center gray-700 dark:gray-200"
+    >
+      <my-page />
+    </div>
+  </body>
+  <script type="module">
+    import * as Vue from 'vue'
+    import * as pinia from 'pinia'
+    import VueDemi from 'vue-demi'
+    import * as VueUse from '@vueuse/core'
+    import { createApp, ref, defineAsyncComponent } from 'vue'
+    import { getVueFile } from './src/composables/utils.js'
+
+    createApp({
+      components: {
+        'my-page': await getVueFile('./src/pages/hi.vue', {
+          Vue,
+          module: {
+            pinia,
+            'vue-demi': VueDemi,
+            '@vueuse/core': VueUse
+          }
+        })
+      }
+    }).mount('#app')
+  </script>
+</html>
