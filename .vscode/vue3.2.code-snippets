@@ -1,0 +1,14 @@
+{
+  "Vue3.2+快速生成模板": {
+    "prefix": "Vue3.2+",
+    "body": [
+      "<script setup>",
+      "$1",
+      "</script>\n",
+      "<template>",
+      "  <div un-cloak>$0</div>",
+      "</template>\n"
+    ],
+    "description": "Vue3.2+"
+  }
+}

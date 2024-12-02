@@ -1,11 +1,13 @@
 <script>
 import TheHello from '../components/TheHello.vue'
 import TheFooter from '../components/TheFooter.vue'
+import TheSetup from '../components/TheSetup.vue'
 
 export default {
   components: {
     TheHello,
-    TheFooter
+    TheFooter,
+    TheSetup
   }
 }
 </script>
@@ -20,6 +22,7 @@ export default {
     p="x-4 y-10"
     text="center gray-700 dark:gray-200"
   >
+    <TheSetup />
     <TheHello />
     <TheFooter />
   </div>
