@@ -10,15 +10,13 @@
 
 ## 关键 package
 
-- [~~http-vue-loader~~](https://github.com/FranckFreiburger/http-vue-loader) - 仓库现已不维护，但 Vue 3 之前版本依旧可用。(~~ps: 相对情况下推荐，无需配置。~~)
-
 - [vue3-sfc-loader](https://github.com/FranckFreiburger/vue3-sfc-loader) - http-vue-loader 升级版，支持 Vue 2 and Vue 3
 
 ## 可选 package
 
 - [UnoCSS](https://github.com/unocss/unocss) - 高性能且极具灵活性的即时原子化 CSS 引擎
 
-- [vue-demi](https://github.com/vueuse/vue-demi) - 允许同时为 Vue 2 与 Vue 3 编写通用库
+- [vue-demi](https://github.com/vueuse/vue-demi) - 允许同时为 Vue 2 与 Vue 3 编写通用库, `Pinia` 需要
 
 - [@vue/composition-api](https://github.com/vuejs/composition-api) - 用于提供 [`Composition API`](https://cn.vuejs.org/guide/extras/composition-api-faq.html) 的 Vue 2 插件
 
@@ -36,32 +34,31 @@
 
   > CDN 模式暂未找到 [`@unocss/preset-icons`](https://github.com/unocss/unocss/tree/main/packages/preset-icons/) 解决方案，暂未接入 `UnoCSS` 环境
 
-## `http-vue-loader` 使用须知
-
-1. `http-vue-loader` 加载的 `.vue` 文件内不支持 `ESM` 的 `import/export default` 等写法，可以使用 `CJS` 导出。(`vue3-sfc-loader` 据说是可以，但是我并没有尝试过)
-
-2. 加载组件时不要使用大写字母，否则组件不会注册成功。 推荐使用脊柱命名法 `the-name` 来注册组件。
-
 #### 示例
 
 ```vue
 <script>
-module.exports = {
+import TheWelcome from '../components/TheWelcome.vue'
+import TheFooter from '../components/TheFooter.vue'
+
+export default {
   components: {
-    'the-name': httpVueLoader('https://www.xxx.xxx/TheName.vue')
+    TheWelcome,
+    TheFooter
   }
 }
 </script>
 
 <template>
-  <div>
-    <the-name></the-name>
+  <div un-cloak h-100vh flex="~ col" justify-center items-center>
+    <TheWelcome />
+    <TheFooter />
   </div>
 </template>
 ```
 
 ## **注意❗️❗️❗️**
 
-此 Demo 因需兼容多版本 `Vue`，需加载自不同 `Runtime package`，所以 `Demo` 中在 `utils` 文件中自定义了一个 `getVueFile` 加载方法。
+此 Demo 因需兼容多版本 `Vue`，需加载自不同 `Runtime package`，所以 `Demo` 中在 `utils/index.js` 文件中自定义了一个 `getVueFile` 加载方法。
 
 正常开发按对应版本，使用对应加载方法即 ok.
