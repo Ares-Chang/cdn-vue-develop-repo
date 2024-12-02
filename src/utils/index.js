@@ -28,7 +28,8 @@ async function getVueFile(url, options) {
 
   return await loadModule(url, {
     moduleCache: {
-      vue: window?.Vue,
+      // 不同时使用 Vue 2 和 Vue 3 时不需要使用 VueDemi, 引入对应 Vue 版本即可
+      vue: window?.VueDemi,
       '@vueuse/core': window?.VueUse,
       pinia: window?.Pinia,
       ...module

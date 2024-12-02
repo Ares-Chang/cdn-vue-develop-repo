@@ -1,4 +1,5 @@
 <script>
+import { ref } from 'vue'
 import { useMouse } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useCounterStore } from '../stores/useCounter.js'
@@ -9,9 +10,10 @@ export default {
     const { count } = storeToRefs(store)
 
     const { x, y } = useMouse()
+    const msg = ref('Hello World!')
 
     return {
-      msg: 'Hello World!',
+      msg,
       x,
       y,
       count,
