@@ -1,5 +1,5 @@
 <script>
-module.exports = {
+export default {
   setup() {
     return {
       list: ['vue@2.6.x', 'vue@2.7.x', 'vue@3.2.x']

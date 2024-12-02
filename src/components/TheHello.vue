@@ -1,7 +1,9 @@
 <script>
-const { useMouse } = VueUse
-const { storeToRefs } = Pinia
-module.exports = {
+import { useMouse } from '@vueuse/core'
+import { storeToRefs } from 'pinia'
+import { useCounterStore } from '../store/useCounter.js'
+
+export default {
   setup() {
     const store = useCounterStore()
     const { count } = storeToRefs(store)

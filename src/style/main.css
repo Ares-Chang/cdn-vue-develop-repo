@@ -1,3 +1,8 @@
+[v-cloak],
+[un-cloak] {
+  display: none !important;
+}
+
 html,
 body,
 #app {

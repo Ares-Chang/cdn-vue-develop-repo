@@ -1,4 +1,4 @@
-const useCounterStore = Pinia.defineStore('counter', () => {
+export const useCounterStore = Pinia.defineStore('counter', () => {
   const { ref } = VueDemi
 
   const count = ref(0)
@@ -11,7 +11,7 @@ const useCounterStore = Pinia.defineStore('counter', () => {
     if (type === '+') count.value++
     else if (type === '-') count.value--
   }
-  
+
   return {
     count,
     calc

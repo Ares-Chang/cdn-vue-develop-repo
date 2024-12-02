@@ -1,15 +1,18 @@
 <script>
-module.exports = {
+import TheWelcome from '../components/TheWelcome.vue'
+import TheFooter from '../components/TheFooter.vue'
+
+export default {
   components: {
-    'the-welcome': getVueFile('/src/components/TheWelcome.vue'),
-    'the-footer': getVueFile('/src/components/TheFooter.vue')
+    TheWelcome,
+    TheFooter
   }
 }
 </script>
 
 <template>
   <div un-cloak h-100vh flex="~ col" justify-center items-center>
-    <the-welcome></the-welcome>
-    <the-footer></the-footer>
+    <TheWelcome />
+    <TheFooter />
   </div>
 </template>

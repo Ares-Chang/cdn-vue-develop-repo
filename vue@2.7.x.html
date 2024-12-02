@@ -7,8 +7,8 @@
     <title>CDN Vue develop config</title>
     <!-- Vue@2.7.14 {@link https://v2.cn.vuejs.org/v2/guide/migration-vue-2-7.html} -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14"></script>
-    <!-- Vue 文件转换库 {@link https://github.com/FranckFreiburger/http-vue-loader} -->
-    <script src="https://unpkg.com/http-vue-loader@1.4.2/src/httpVueLoader.js"></script>
+    <!-- Vue 文件转换库 {@link https://github.com/FranckFreiburger/vue3-sfc-loader} -->
+    <script src="https://unpkg.com/vue3-sfc-loader@0.9.5/dist/vue2-sfc-loader.js"></script>
     <!-- User defined 请确保加载于 UnoCSS 之前-->
     <script src="./uno.config.js"></script>
     <!-- UnoCSS Attributify {@link 文档 https://uno.antfu.me} {@link https://github.com/unocss/unocss/tree/main/packages/runtime} -->
@@ -26,17 +26,7 @@
     <!-- User Style -->
     <link rel="stylesheet" href="./src/style/main.css" />
     <!-- User Composables -->
-    <script src="./src/composables/dark.js"></script>
     <script src="./src/composables/utils.js"></script>
-    <!-- Pinia useStore 自定义函数 -->
-    <script src="./src/store/useCounter.js"></script>
-
-    <style>
-      [v-cloak],
-      [un-cloak] {
-        display: none !important;
-      }
-    </style>
   </head>
 
   <body m0>
@@ -46,22 +36,19 @@
       font-sans
       p="x-4 y-10"
       text="center gray-700 dark:gray-200"
-    >
-      <my-page un-cloak></my-page>
-    </div>
+    />
   </body>
 
   <script>
     const { createPinia, PiniaVuePlugin } = Pinia
+    const { loadModule } = window['vue2-sfc-loader']
 
-    Vue.use(PiniaVuePlugin)
-    const app = new Vue({
-      el: '#app',
-      pinia: createPinia(),
-      components: {
-        // 引入页面
-        'my-page': getVueFile(`./src/pages/hi.vue`)
-      }
+    loadVueFile('./src/pages/hi.vue').then(computed => {
+      Vue.use(PiniaVuePlugin)
+      const pinia = createPinia()
+      Vue.use(pinia)
+
+      new Vue(computed).$mount('#app')
     })
   </script>
 </html>
