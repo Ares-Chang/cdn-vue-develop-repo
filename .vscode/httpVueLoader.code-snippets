@@ -1,9 +1,9 @@
 {
-  "httpVueLoader快速生成模板": {
-    "prefix": "httpVue",
+  "vue esm 快速生成模板": {
+    "prefix": "vueEsm",
     "body": [
       "<script>",
-      "module.exports = {",
+      "export default {",
       "  setup() {",
       "    return {",
       "      $1",
@@ -15,6 +15,6 @@
       "  <div un-cloak>$0</div>",
       "</template>\n"
     ],
-    "description": "httpVueLoader 快速生成模板"
+    "description": "vue esm 快速生成模板"
   }
 }
