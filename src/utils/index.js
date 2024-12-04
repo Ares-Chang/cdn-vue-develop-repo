@@ -24,7 +24,7 @@ async function getVueFile(url, options) {
   if (isVue2) loadModule = window['vue2-sfc-loader']?.loadModule
   else loadModule = window['vue3-sfc-loader']?.loadModule
 
-  const { module, ...arg } = options || {}
+  const { module, reload = true, importmap = {}, ...arg } = options || {}
 
   return await loadModule(url, {
     moduleCache: {
@@ -35,9 +35,9 @@ async function getVueFile(url, options) {
       ...module
     },
     getFile(url) {
-      url = /.*?\.js|.mjs|.css|.less|.vue$/.test(url)
-        ? `${url}?v=${new Date().getTime()}`
-        : `${url}.vue?v=${new Date().getTime()}`
+      url = replaceImportMap(url, importmap)
+
+      url = `${url}${!/.*?\.js|.mjs|.css|.less|.vue$/.test(url) ? '.js' : ''}`
 
       const type = /.*?\.js|.mjs$/.test(url)
         ? '.mjs'
@@ -45,7 +45,9 @@ async function getVueFile(url, options) {
         ? '.vue'
         : /.*?\.css$/.test(url)
         ? '.css'
-        : '.vue'
+        : '.mjs'
+
+      if (reload) url = `${url}?v=${new Date().getTime()}`
 
       const getContentData = asBinary =>
         fetch(url).then(res =>
@@ -66,4 +68,19 @@ async function getVueFile(url, options) {
     },
     ...arg
   })
+}
+
+/**
+ * 替换 importmap 中的 key
+ * @param {string} url 文件地址
+ * @param {object} importmap importmap 配置
+ */
+function replaceImportMap(url, importmap) {
+  const keys = Object.keys(importmap)
+  if (!keys.length) return url
+
+  const key = keys.find(key => url.startsWith(key))
+  if (!key) return url
+
+  return url.replace(key, importmap[key])
 }

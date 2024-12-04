@@ -44,7 +44,13 @@
     const { createApp } = Vue
     const { createPinia } = Pinia
 
-    createApp(loadVueFile('./src/pages/hi.vue'))
+    createApp(
+      loadVueFile('./src/pages/hi.vue', {
+        importmap: {
+          '~/': './src/'
+        }
+      })
+    )
       .use(createPinia())
       .mount('#app')
   </script>

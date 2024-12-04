@@ -1,6 +1,6 @@
 <script>
-import TheWelcome from '../components/TheWelcome.vue'
-import TheFooter from '../components/TheFooter.vue'
+import TheWelcome from '~/components/TheWelcome.vue'
+import TheFooter from '~/components/TheFooter.vue'
 
 export default {
   components: {

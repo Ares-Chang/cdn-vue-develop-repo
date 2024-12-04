@@ -44,7 +44,11 @@
     const { createPinia, PiniaVuePlugin } = Pinia
     const { loadModule } = window['vue2-sfc-loader']
 
-    loadVueFile('./src/pages/hi.vue').then(computed => {
+    loadVueFile('./src/pages/hi.vue', {
+      importmap: {
+        '~/': './src/'
+      }
+    }).then(computed => {
       Vue.use(PiniaVuePlugin)
       const pinia = createPinia()
       Vue.use(pinia)

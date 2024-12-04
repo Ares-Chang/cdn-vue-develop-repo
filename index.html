@@ -45,9 +45,15 @@
     />
   </body>
 
-  <script>
+  <script type="module">
     const { createApp } = Vue
 
-    createApp(loadVueFile('./src/pages/index.vue')).mount('#app')
+    createApp(
+      loadVueFile('./src/pages/index.vue', {
+        importmap: {
+          '~/': './src/'
+        }
+      })
+    ).mount('#app')
   </script>
 </html>

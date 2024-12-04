@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import { useMouse } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
-import { useCounterStore } from '../stores/useCounter.js'
+import { useCounterStore } from '~/stores/useCounter.js'
 
 export default {
   setup() {

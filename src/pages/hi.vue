@@ -1,7 +1,7 @@
 <script>
-import TheHello from '../components/TheHello.vue'
-import TheFooter from '../components/TheFooter.vue'
-import TheSetup from '../components/TheSetup.vue'
+import TheHello from '~/components/TheHello.vue'
+import TheFooter from '~/components/TheFooter.vue'
+import TheSetup from '~/components/TheSetup.vue'
 
 export default {
   components: {
